@@ -1,28 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Posts from './posts';
+import axios from 'axios';
 
 const App = () => {
-    const [posts, setPosts] = useState({});
-    const [loading, setLoading] = useState({});
-    const [currentPage, setCurrentPage] = useState({});
-    const [postsPerPage, setPostsPerPage] = useState({});
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(6);
 
     useEffect(() => {
-        const fetchPost = async () => {
+        const fetchPosts = async () => {
             setLoading(true);
             const res = await axios.get('https://epower.ng/wp-json/wp/v2/posts');
             setPosts(res.data);
             setLoading(false);
         };
 
-        fetchPost();
+        fetchPosts();
     }, []);
 
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
     return (
-        <div className="App">
-            <h1>My Blog</h1>
-            <Posts posts={posts} loading={loading} />
+        <div className="container mt-5">
+            <h1 className="text-primary mb-3">My Blog</h1>
+            <Posts posts={currentPosts} loading={loading} />
         </div>
     );
 };
