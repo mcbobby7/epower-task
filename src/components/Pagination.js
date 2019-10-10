@@ -1,4 +1,18 @@
 import React from 'react';
+import Styled from 'styled-components';
+import { Button } from 'antd';
+
+const Paginate = Styled.div`
+    margin-left: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    
+    .button {
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+`;
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     const pageNumbers = [];
@@ -8,17 +22,15 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     }
 
     return (
-        <nav>
-            <ul className="pagination">
-                {pageNumbers.map(number => (
-                    <li key={number} className="page-item">
-                        <a onClick={() => paginate(number)} href="!#" className="page-link">
-                            {number}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </nav>
+        <Paginate>
+            {pageNumbers.map(number => (
+                <span key={number} className="button">
+                    <Button onClick={() => paginate(number)} href="#">
+                        {number}
+                    </Button>
+                </span>
+            ))}
+        </Paginate>
     );
 };
 
