@@ -12,7 +12,6 @@ const App = () => {
     const [postsPerPage] = useState(6);
 
     const paginate = pageNumber => setCurrentPage(pageNumber);
-    console.log(posts);
 
     useEffect(() => {
         const fetchPosts = async () => {

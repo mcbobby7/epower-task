@@ -45,7 +45,7 @@ class SinglePage extends Component {
                 {this.state.post.map(single => {
                     return (
                         <div key={single.id}>
-                            <img className="image" alt="image" src={single.featured_image} />
+                            <img className="image" alt="post" src={single.featured_image} />
                             <h1>{single.title.rendered}</h1>
                             <h3>
                                 {single.excerpt.rendered}

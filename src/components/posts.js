@@ -24,7 +24,7 @@ const Posts = ({ posts, loading }) => {
     return (
         <PostWrapper>
             {posts.map(post => (
-                <Link to={`/post/${post.slug}`}>
+                <Link key={post.id} to={`/post/${post.slug}`}>
                     <Tooltip title="click to view this blog">
                         <Card
                             key={post.id}
