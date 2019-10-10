@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 const { Meta } = Card;
 
 const PostWrapper = Styled.div`
-    padding: 30px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -17,7 +16,7 @@ const Posts = ({ posts, loading }) => {
     if (loading) {
         return (
             <PostWrapper>
-                <Spin size="large" />
+                <Spin size="large" style={{ paddingBottom: '300px', paddingTop: '200px' }} />
             </PostWrapper>
         );
     }
@@ -29,7 +28,7 @@ const Posts = ({ posts, loading }) => {
                     <Tooltip title="click to view this blog">
                         <Card
                             key={post.id}
-                            style={{ marginBottom: 30, marginLeft: 60, width: 300 }}
+                            style={{ marginBottom: 30, marginLeft: 60, marginTop: 20, width: 300 }}
                             cover={<img alt="example" src={post.featured_image} />}
                         >
                             <Meta

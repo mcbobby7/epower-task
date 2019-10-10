@@ -7,7 +7,7 @@ const HeaderWrapper = Styled.div`
     padding: 30px;
     text-align: center;
     background-color: #001529;
-    height: 120px;
+    height: 100px;
     width: 100%;
     h1 {
         color: white;
@@ -15,16 +15,17 @@ const HeaderWrapper = Styled.div`
     .link {
         float: left;
         color: white;
+        padding-left: 10px;
     }
 `;
 
 const Header = () => {
     return (
         <HeaderWrapper>
-            <h1>E POWER BLOG </h1>
             <div className="link">
                 <Link to="/">Home</Link>
             </div>
+            <h1>E POWER BLOG </h1>
         </HeaderWrapper>
     );
 };
