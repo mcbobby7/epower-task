@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Styled from 'styled-components';
+import Header from './header';
+import Footer from './footer';
 
 const SinglePostWrapper = Styled.div`
     .image {
@@ -39,7 +41,7 @@ class SinglePage extends Component {
     render() {
         return (
             <SinglePostWrapper>
-                <h1 className="text-primary mb-3">My Blog</h1>
+                <Header />
                 {this.state.post.map(single => {
                     return (
                         <div key={single.id}>
@@ -55,10 +57,10 @@ class SinglePage extends Component {
                                 {single.excerpt.rendered}
                                 {single.excerpt.rendered}
                             </h3>
-                            {/* <h3>{single.content.rendered}</h3> */}
                         </div>
                     );
                 })}
+                <Footer />
             </SinglePostWrapper>
         );
     }
